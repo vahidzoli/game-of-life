@@ -23,9 +23,24 @@ class GameLife
             print "\n";
         }
     }
+
+    public function glider(array $pattern = null): void
+    {
+        $pattern = $pattern ?? [[0,1], [1,2], [2,0], [2,1], [2,2]];
+
+        $row = intdiv($this->rows, 2) - 1;
+        $col = intdiv($this->cols, 2) - 1;
+
+        foreach($pattern as [$r, $c]) {
+            $this->grid[$row + $r][$col + $c] = 1;
+        }
+    }
 }
 
 $rows = $cols = 25;
 
 $gameLife = new GameLife($rows, $cols);
+$gameLife->glider();
+
+print("========== gen 0 ========== \n");
 $gameLife->print();

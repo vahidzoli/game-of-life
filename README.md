@@ -5,14 +5,14 @@ It demonstrates the evolution of a **Glider** pattern inside a 25x25 grid.
 
 ---
 
-## 📥 Requirements
+## Requirements
 - PHP 8+
 - [Composer](https://getcomposer.org/) (for PHPUnit)
 
 ---
 
-## ▶️ Running the Game
-Save the main script as `gameoflife.php` and run:
+## Running the Game
+Save the main script as `GameLife.php` and run:
 
 ```bash
-php gameoflife.php
+php GameLife.php
