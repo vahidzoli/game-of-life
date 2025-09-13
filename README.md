@@ -16,6 +16,8 @@ Save the main script as `GameLife.php` and run:
 
 ```bash
 php GameLife.php
+```
+---
 
 ## CLI Options
 
