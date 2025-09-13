@@ -35,6 +35,53 @@ class GameLife
             $this->grid[$row + $r][$col + $c] = 1;
         }
     }
+
+    private function liveNeighbors(int $row, int $col): int
+    {
+        $count = 0;
+
+        $directions = [
+            [-1, 0],
+            [1, 0],
+            [0, -1],
+            [0, 1],
+            [-1, -1],
+            [-1, 1],
+            [1, -1],
+            [1, 1], 
+        ];
+        
+        foreach($directions as [$dr, $dc]) {
+            $newRow = $row + $dr;
+            $newCol = $col + $dc;
+    
+            if($newRow >= 0 && $newRow < $this->rows && $newCol >= 0 && $newCol < $this->cols) {
+                $count += $this->grid[$newRow][$newCol];
+            }
+        }
+
+        return $count;
+    }
+
+    public function nextGen(): void
+    {
+        $newGrid = array_fill(0, $this->rows, array_fill(0, $this->cols, 0));
+        for($r = 0; $r < $this->rows; $r++) {
+            for($c = 0; $c < $this->cols; $c++) {
+                $n = $this->liveNeighbors($r, $c);
+                if($this->grid[$r][$c] === 1) {
+                    if($n === 2 || $n === 3) {
+                        $newGrid[$r][$c] = 1;
+                    }
+                } else {
+                    if ($n === 3) {
+                        $newGrid[$r][$c] = 1;
+                    }
+                }
+            }
+        }
+        $this->grid = $newGrid;
+    }
 }
 
 $rows = $cols = 25;
@@ -44,3 +91,11 @@ $gameLife->glider();
 
 print("========== gen 0 ========== \n");
 $gameLife->print();
+
+$generation = 12;
+
+for($i=1; $i<=$generation; $i++) {
+    $gameLife->nextGen();
+    print("========== gen $i ========== \n");
+    $gameLife->print();
+}
