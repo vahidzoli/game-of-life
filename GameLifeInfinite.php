@@ -62,17 +62,3 @@ class GameLifeInfinite
         $this->liveCells = $newLiveCells;
     }
 }
-
-// $rows = 25;
-// $cols = 25;
-
-// $game = new GameLifeInfinite();
-// $game->glider($rows, $cols);
-
-// $generation = 5;
-
-// for ($i = 0; $i < $generation; $i++) {
-//     $game->print(0, $rows, 0, $cols);
-//     echo "++++++++++++\n";
-//     $game->nextGen();
-// }
