@@ -84,15 +84,16 @@ class GameLife
     }
 }
 
-$rows = $cols = 25;
+$options = getopt("", ["rows::", "cols::", "gens::"]);
+$rows = isset($options["rows"]) ? (int)$options["rows"] : 25;
+$cols = isset($options["cols"]) ? (int)$options["cols"] : 25;
+$generation = isset($options["gens"]) ? (int)$options["gens"] : 12;
 
 $gameLife = new GameLife($rows, $cols);
 $gameLife->glider();
 
 print("========== gen 0 ========== \n");
 $gameLife->print();
-
-$generation = 12;
 
 for($i=1; $i<=$generation; $i++) {
     $gameLife->nextGen();

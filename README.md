@@ -16,3 +16,10 @@ Save the main script as `GameLife.php` and run:
 
 ```bash
 php GameLife.php
+
+## CLI Options
+
+You can customize the simulation from the command line:
+
+```bash
+php GameLife.php --rows=30 --cols=30 --gens=20
