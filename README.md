@@ -11,9 +11,51 @@ It demonstrates the evolution of a **Glider** pattern inside a 25x25 grid.
 
 ---
 
-## Running the Game
-Save the main script as `GameLifeInfinite.php` and run:
+## Installation
+
+1. Clone the repository:
 
 ```bash
-php GameLifeInfinite.php
+git clone https://github.com/vahidzoli/game-of-life.git
+```
+
+---
+
+2. Install dependencies (for PHPUnit):
+
+```bash
+composer install
+```
+
+---
+
+## Running the Game
+Save the project and run:
+
+```bash
+php demo.php
+```
+
+---
+
+## Running Tests
+
+The project includes PHPUnit tests in testGameLifeInfiniteTest.php.
+
+```bash
+vendor/bin/phpunit
+```
+
+---
+
+You should see output similar to:
+
+```bash
+PHPUnit 10.0.0 by Sebastian Bergmann and contributors.
+
+....                                                                4 / 4 (100%)
+
+Time: 00:00.012, Memory: 6.00 MB
+
+OK (4 tests, 10 assertions)
 ```
